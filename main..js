@@ -1,4 +1,9 @@
 const themeBtn = document.querySelector(".theme-btn");
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
+
+
+// ================= THEME =================
 
 themeBtn.addEventListener("click", () => {
 
@@ -9,5 +14,34 @@ themeBtn.addEventListener("click", () => {
     } else {
         themeBtn.textContent = "☾";
     }
+
+});
+
+
+// ================= MOBILE MENU =================
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("show");
+
+    if (navLinks.classList.contains("show")) {
+        menuBtn.textContent = "✕";
+    } else {
+        menuBtn.textContent = "☰";
+    }
+
+});
+
+
+// Close menu after clicking a link
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+        menuBtn.textContent = "☰";
+
+    });
 
 });
